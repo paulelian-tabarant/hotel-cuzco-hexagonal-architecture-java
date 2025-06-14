@@ -7,7 +7,6 @@ import java.util.List;
 public class Hôtel {
     private final List<Chambre> chambres;
 
-    // suggestion: ajouter des règles de numérotation de chambres et d'étages
     public Hôtel(List<DonnéesCréationChambre> donnéesChambres, Integer prixDuRezDeChausséeEnEuros) {
         this.chambres = donnéesChambres.stream()
                 .map(donnéesChambre -> créerChambreDepuis(prixDuRezDeChausséeEnEuros, donnéesChambre))

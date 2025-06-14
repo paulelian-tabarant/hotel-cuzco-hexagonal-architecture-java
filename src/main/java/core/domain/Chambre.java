@@ -27,11 +27,12 @@ public class Chambre {
         this.prix = autre.prix;
     }
 
+    // note: on pourrait créer un value object pour le prix
     public void définirPrixÀ(PrixEnEuros prixEnEuros) {
         this.prix = prixEnEuros;
     }
 
-    public DonnéesChambre données() {
+    public DonnéesChambre state() {
         return new DonnéesChambre(étage, numéro, prix.valeur());
     }
 }

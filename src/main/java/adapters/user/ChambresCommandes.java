@@ -3,15 +3,17 @@ package adapters.user;
 import core.dto.DonnéesChambre;
 import ports.user.RécupérationDeToutesLesChambres;
 
-public class ChambresHotelPrompt {
+public class ChambresCommandes {
     private final RécupérationDeToutesLesChambres récupérationDeToutesLesChambres;
 
-    public ChambresHotelPrompt(RécupérationDeToutesLesChambres récupérationDeToutesLesChambres) {
+    public ChambresCommandes(RécupérationDeToutesLesChambres récupérationDeToutesLesChambres) {
         this.récupérationDeToutesLesChambres = récupérationDeToutesLesChambres;
     }
 
-    public String demander(String afficherToutesLesChambres) {
-        // FIXME: protéger des commandes inconnues
+    public String demander(String action) {
+        if (!action.equals("afficher")) {
+            return "chambres: action inconnue";
+        }
 
         var chambres = récupérationDeToutesLesChambres.récupérerToutesLesChambres();
 

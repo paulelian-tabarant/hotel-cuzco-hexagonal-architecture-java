@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-class ChambresHotelPromptTest {
+class ChambresCommandesTest {
 
     @Test
     void doitAfficherUnTableauAvecÉtageNuméroEtPrixDeChaqueChambre() {
@@ -23,7 +23,7 @@ class ChambresHotelPromptTest {
                 )
         );
 
-        var chambresAffichées = new ChambresHotelPrompt(port).demander("afficher toutes les chambres");
+        var chambresAffichées = new ChambresCommandes(port).demander("afficher");
 
         assertThat(chambresAffichées).isEqualToIgnoringWhitespace(
                 """
@@ -33,5 +33,15 @@ class ChambresHotelPromptTest {
                             |   1   | 101    | 107€ |
                             |   2   | 201    | 122€ |
                         """);
+    }
+
+    @Test
+    void doitRetournerUnMessageDErreurSiLActionDemandéeEstInconnue() {
+        var port = mock(RécupérationDeToutesLesChambres.class);
+        var prompt = new ChambresCommandes(port);
+
+        var message = prompt.demander("action-inconnue");
+
+        assertThat(message).isEqualTo("chambres: action inconnue");
     }
 }

@@ -1,6 +1,6 @@
 import adapters.server.StockageHôtelInMemory;
-import adapters.user.ChambresHotelPrompt;
-import adapters.user.TarifsHotelPrompt;
+import adapters.user.ChambresCommandes;
+import adapters.user.PrixCommandes;
 import core.HôtelService;
 import core.domain.Hôtel;
 import core.dto.DonnéesCréationChambre;
@@ -33,16 +33,11 @@ public class HotelCuzcoAcceptanceTest {
         var hexagone = new HôtelService(serverSideAdapter);
 
         // Les adapters user-side exposent les fonctionnalités du coeur du métier à l'utilisateur
-        var tarifsHotelUserSideAdapter = new TarifsHotelPrompt(hexagone);
-        tarifsHotelUserSideAdapter.demander("définir prix du rdc en euros - 100");
-        // tarifsHotelUserSideAdapter.demander("définir prix du 2ème étage en euros - 59");
-        // tarifsHotelUserSideAdapter.demander("définir prix du 1er étage en livres sterling - 134");
-        // tarifsHotelUserSideAdapter.demander("définir prix de la taxe de séjour en euros - 1");
+        var tarifsHotelUserSideAdapter = new PrixCommandes(hexagone);
+        tarifsHotelUserSideAdapter.demander("set-rdc 100");
 
-        var chambresHotelUserSideAdapter = new ChambresHotelPrompt(hexagone);
-        var chambresAffichées = chambresHotelUserSideAdapter.demander("afficher toutes les chambres");
-        // chambresHotelUserSideAdapter.demander("afficher toutes les chambres sous la forme 'numéro | étage'");
-        // chambresHotelUserSideAdapter.demander("supprimer la chambre 1");
+        var chambresHotelUserSideAdapter = new ChambresCommandes(hexagone);
+        var chambresAffichées = chambresHotelUserSideAdapter.demander("afficher");
 
         assertThat(chambresAffichées).isEqualToIgnoringWhitespace(
                 """

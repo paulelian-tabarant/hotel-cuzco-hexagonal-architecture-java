@@ -22,7 +22,7 @@ public class HôtelService implements RécupérationDeToutesLesChambres, Défini
 
         return hôtel.récupérerToutesLesChambres()
                 .stream()
-                .map(Chambre::données)
+                .map(Chambre::state)
                 .toList();
     }
 

@@ -20,6 +20,6 @@ class HôtelTest {
         premièreChambre.définirPrixÀ(new PrixEnEuros(1200));
 
         var premièreChambreDansHotel = hôtel.récupérerToutesLesChambres().getFirst();
-        assertThat(premièreChambreDansHotel.données().prix()).isEqualTo(prixInitial);
+        assertThat(premièreChambreDansHotel.state().prix()).isEqualTo(prixInitial);
     }
 }
