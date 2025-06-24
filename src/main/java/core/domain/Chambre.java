@@ -1,8 +1,12 @@
 package core.domain;
 
-import core.dto.DonnéesChambre;
-
 public class Chambre {
+    public record Données(Integer étage, Integer numéro, Integer prix) {
+    }
+
+    public record DonnéesCréation(Integer étage, Integer numéro) {
+    }
+
     public final Integer étage;
     private final Integer numéro;
     private PrixEnEuros prix;
@@ -28,11 +32,12 @@ public class Chambre {
     }
 
     // note: on pourrait créer un value object pour le prix
+
     public void définirPrixÀ(PrixEnEuros prixEnEuros) {
         this.prix = prixEnEuros;
     }
 
-    public DonnéesChambre state() {
-        return new DonnéesChambre(étage, numéro, prix.valeur());
+    public Données state() {
+        return new Données(étage, numéro, prix.valeur());
     }
 }

@@ -1,8 +1,8 @@
-package adapters.user;
+package adapters.user_side;
 
-import core.dto.DonnéesChambre;
+import core.domain.Chambre;
 import org.junit.jupiter.api.Test;
-import ports.user.RécupérationDeToutesLesChambres;
+import ports.user_side.RécupérationDeToutesLesChambres;
 
 import java.util.List;
 
@@ -17,9 +17,9 @@ class ChambresCommandesTest {
         var port = mock(RécupérationDeToutesLesChambres.class);
         when(port.récupérerToutesLesChambres()).thenReturn(
                 List.of(
-                        new DonnéesChambre(0, 1, 100),
-                        new DonnéesChambre(1, 101, 107),
-                        new DonnéesChambre(2, 201, 122)
+                        new Chambre.Données(0, 1, 100),
+                        new Chambre.Données(1, 101, 107),
+                        new Chambre.Données(2, 201, 122)
                 )
         );
 

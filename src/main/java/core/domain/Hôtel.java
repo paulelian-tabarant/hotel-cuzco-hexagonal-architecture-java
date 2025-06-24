@@ -1,13 +1,11 @@
 package core.domain;
 
-import core.dto.DonnéesCréationChambre;
-
 import java.util.List;
 
 public class Hôtel {
     private final List<Chambre> chambres;
 
-    public Hôtel(List<DonnéesCréationChambre> donnéesChambres, Integer prixDuRezDeChausséeEnEuros) {
+    public Hôtel(List<Chambre.DonnéesCréation> donnéesChambres, Integer prixDuRezDeChausséeEnEuros) {
         this.chambres = donnéesChambres.stream()
                 .map(donnéesChambre -> créerChambreDepuis(prixDuRezDeChausséeEnEuros, donnéesChambre))
                 .toList();
@@ -30,7 +28,7 @@ public class Hôtel {
         }
     }
 
-    private Chambre créerChambreDepuis(Integer prixDuRezDeChausséeEnEuros, DonnéesCréationChambre dto) {
+    private Chambre créerChambreDepuis(Integer prixDuRezDeChausséeEnEuros, Chambre.DonnéesCréation dto) {
         var prix = calculerPrixÉtageAPartirDuRezDeChaussée(new PrixEnEuros(prixDuRezDeChausséeEnEuros), dto.étage());
         return new Chambre(dto.étage(), dto.numéro(), prix);
     }

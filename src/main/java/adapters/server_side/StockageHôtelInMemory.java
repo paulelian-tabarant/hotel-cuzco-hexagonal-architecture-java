@@ -1,7 +1,7 @@
-package adapters.server;
+package adapters.server_side;
 
 import core.domain.Hôtel;
-import ports.server.StockageHôtel;
+import ports.server_side.StockageHôtel;
 
 public class StockageHôtelInMemory implements StockageHôtel {
     private Hôtel hôtel;

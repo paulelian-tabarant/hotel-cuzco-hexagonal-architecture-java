@@ -1,4 +1,4 @@
-package ports.server;
+package ports.server_side;
 
 import core.domain.Hôtel;
 

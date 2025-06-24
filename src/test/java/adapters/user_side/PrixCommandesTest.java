@@ -1,7 +1,7 @@
-package adapters.user;
+package adapters.user_side;
 
 import org.junit.jupiter.api.Test;
-import ports.user.DéfinitionDuPrixDuRezDeChaussée;
+import ports.user_side.DéfinitionDuPrixDuRezDeChaussée;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;

@@ -1,8 +1,8 @@
-package adapters.server;
+package adapters.server_side;
 
+import core.domain.Chambre;
 import core.domain.Hôtel;
 import core.domain.PrixEnEuros;
-import core.dto.DonnéesCréationChambre;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,10 +21,10 @@ public class StockageHôtelInMemoryTest {
     @Test
     void doitEnregistrerUnHôtelComplet() {
         Hôtel hôtelÀEnregistrer = new Hôtel(List.of(
-                new DonnéesCréationChambre(0, 1),
-                new DonnéesCréationChambre(0, 2),
-                new DonnéesCréationChambre(1, 101),
-                new DonnéesCréationChambre(2, 201)
+                new Chambre.DonnéesCréation(0, 1),
+                new Chambre.DonnéesCréation(0, 2),
+                new Chambre.DonnéesCréation(1, 101),
+                new Chambre.DonnéesCréation(2, 201)
         ),
                 1000
         );
@@ -36,10 +36,10 @@ public class StockageHôtelInMemoryTest {
     @Test
     void doitConserverLHotelExistantTantQuIlNEstPasSauvegardéÀNouveau() {
         Hôtel hôtelInitial = new Hôtel(List.of(
-                new DonnéesCréationChambre(0, 1),
-                new DonnéesCréationChambre(0, 2),
-                new DonnéesCréationChambre(1, 101),
-                new DonnéesCréationChambre(2, 201)
+                new Chambre.DonnéesCréation(0, 1),
+                new Chambre.DonnéesCréation(0, 2),
+                new Chambre.DonnéesCréation(1, 101),
+                new Chambre.DonnéesCréation(2, 201)
         ), 1000);
         stockageHôtelInMemory.enregistrer(hôtelInitial);
 

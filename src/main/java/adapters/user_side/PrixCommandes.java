@@ -1,6 +1,6 @@
-package adapters.user;
+package adapters.user_side;
 
-import ports.user.DéfinitionDuPrixDuRezDeChaussée;
+import ports.user_side.DéfinitionDuPrixDuRezDeChaussée;
 
 public class PrixCommandes {
     private final DéfinitionDuPrixDuRezDeChaussée définitionPrixDuRezDeChaussée;

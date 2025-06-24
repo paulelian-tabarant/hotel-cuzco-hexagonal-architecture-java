@@ -1,8 +1,8 @@
 package core;
 
+import core.domain.Chambre;
 import core.domain.Hôtel;
 import core.domain.PrixEnEuros;
-import core.dto.DonnéesCréationChambre;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -14,7 +14,7 @@ class HôtelTest {
     @Test
     void neDoitPasPermettreDeModifierIndividuellementLePrixDesChambres() {
         var prixInitial = 1000;
-        Hôtel hôtel = new Hôtel(List.of(new DonnéesCréationChambre(0, 1)), prixInitial);
+        Hôtel hôtel = new Hôtel(List.of(new Chambre.DonnéesCréation(0, 1)), prixInitial);
 
         var premièreChambre = hôtel.récupérerToutesLesChambres().getFirst();
         premièreChambre.définirPrixÀ(new PrixEnEuros(1200));

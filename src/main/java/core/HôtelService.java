@@ -2,10 +2,9 @@ package core;
 
 import core.domain.Chambre;
 import core.domain.PrixEnEuros;
-import core.dto.DonnéesChambre;
-import ports.server.StockageHôtel;
-import ports.user.DéfinitionDuPrixDuRezDeChaussée;
-import ports.user.RécupérationDeToutesLesChambres;
+import ports.server_side.StockageHôtel;
+import ports.user_side.DéfinitionDuPrixDuRezDeChaussée;
+import ports.user_side.RécupérationDeToutesLesChambres;
 
 import java.util.List;
 
@@ -17,7 +16,7 @@ public class HôtelService implements RécupérationDeToutesLesChambres, Défini
     }
 
     @Override
-    public List<DonnéesChambre> récupérerToutesLesChambres() {
+    public List<Chambre.Données> récupérerToutesLesChambres() {
         var hôtel = stockageHôtel.récupérer();
 
         return hôtel.récupérerToutesLesChambres()

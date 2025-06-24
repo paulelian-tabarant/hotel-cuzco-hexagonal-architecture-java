@@ -1,7 +1,7 @@
-package adapters.user;
+package adapters.user_side;
 
-import core.dto.DonnéesChambre;
-import ports.user.RécupérationDeToutesLesChambres;
+import core.domain.Chambre;
+import ports.user_side.RécupérationDeToutesLesChambres;
 
 public class ChambresCommandes {
     private final RécupérationDeToutesLesChambres récupérationDeToutesLesChambres;
@@ -29,7 +29,7 @@ public class ChambresCommandes {
         return tableau.toString();
     }
 
-    private static String convertirEnLigneTableau(DonnéesChambre dto) {
+    private static String convertirEnLigneTableau(Chambre.Données dto) {
         return String.format("|   %d   | %d      | %d€ |\n",
                 dto.étage(), dto.numéro(), dto.prix());
     }

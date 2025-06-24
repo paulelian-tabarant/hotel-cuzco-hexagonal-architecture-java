@@ -1,10 +1,10 @@
-import adapters.server.StockageHôtelInMemory;
-import adapters.user.ChambresCommandes;
-import adapters.user.PrixCommandes;
+import adapters.server_side.StockageHôtelInMemory;
+import adapters.user_side.ChambresCommandes;
+import adapters.user_side.PrixCommandes;
 import core.HôtelService;
+import core.domain.Chambre;
 import core.domain.Hôtel;
-import core.dto.DonnéesCréationChambre;
-import ports.server.StockageHôtel;
+import ports.server_side.StockageHôtel;
 
 import java.util.List;
 import java.util.Scanner;
@@ -50,14 +50,14 @@ public class Main {
     private static HôtelService créerHexagone() {
         Hôtel hôtel = new Hôtel(
                 List.of(
-                        new DonnéesCréationChambre(0, 1),
-                        new DonnéesCréationChambre(0, 2),
-                        new DonnéesCréationChambre(1, 101),
-                        new DonnéesCréationChambre(1, 102),
-                        new DonnéesCréationChambre(1, 103),
-                        new DonnéesCréationChambre(2, 201),
-                        new DonnéesCréationChambre(2, 202),
-                        new DonnéesCréationChambre(3, 301)
+                        new Chambre.DonnéesCréation(0, 1),
+                        new Chambre.DonnéesCréation(0, 2),
+                        new Chambre.DonnéesCréation(1, 101),
+                        new Chambre.DonnéesCréation(1, 102),
+                        new Chambre.DonnéesCréation(1, 103),
+                        new Chambre.DonnéesCréation(2, 201),
+                        new Chambre.DonnéesCréation(2, 202),
+                        new Chambre.DonnéesCréation(3, 301)
                 ),
                 100
         );
